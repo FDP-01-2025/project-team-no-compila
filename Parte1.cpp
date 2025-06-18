@@ -16,8 +16,8 @@ int main(){
     cout << "1. Profile" << endl;
     cout << "2. New game" << endl;
     cout << "3. Saved game" << endl;
-    cout << "4. Salir" << endl;
-    cout << "5. Creditos" << endl;
+    cout << "4. Exit" << endl;
+    cout << "5. Credits" << endl;
     cin >> option;
 
 
