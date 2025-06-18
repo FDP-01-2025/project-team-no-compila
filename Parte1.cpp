@@ -8,8 +8,8 @@ int main(){
     //Variable declaration
     int option;
     char a,b,c;
-
-
+    string name, nameGame, saveGame;
+    
 
     //Menu control
     cout << "-----Menu-----" << endl;
@@ -61,7 +61,7 @@ do{
     cout << "1) Force open the metal box" << endl;
     cout << "2) Inspect the portrait for clues" << endl;
     cout << "3) Close your eyes and listen to the whispers" << endl;
-    cin >> opc;
+    cin >> option;
     
     switch (option)
 {
@@ -77,6 +77,29 @@ case 3:
 } 
     
 }while (option > 3 || option < 1);
+
+    do{ 
+    cout << "PLAYER 2:" << endl;
+    cout << "Choose an option: " << endl;
+    cout << "1) Follow the footprints that disappear into the darkness" << endl;
+    cout << "2) Explore a piece of furniture with strange grooves" << endl;
+    cout << "3) Observe the shadows that seem to move." << endl;
+    cin >> option;
+
+    switch (option)
+{
+case 1:
+    cout << "You discover a trapdoor hidden under the rug." << endl;
+    break;
+case 2:
+    cout << "You find a strange medallion (spiritual protection)." << endl;
+    break;
+case 3:
+    cout << "You perceive a ghostly figure pointing north ." << endl;
+    break;
+} 
+}while (option > 3 || option < 1);
+
 
 
     return 0;
