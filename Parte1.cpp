@@ -54,13 +54,29 @@ int main(){
     cout << "The storm strikes the rusty gate, which opens with a blood-curdling screech. The";
     cout << "thunder illuminates the imposing Blackthorn Manor for seconds. On the damp ground, an old";
     cout << "metal box rests in front of a dusty portrait whose face seems to follow their movements.";
-
+    
+do{
     cout << "PLAYER 1:" << endl;
     cout << "Choose an option: " << endl;
     cout << "1) Force open the metal box" << endl;
     cout << "2) Inspect the portrait for clues" << endl;
     cout << "3) Close your eyes and listen to the whispers" << endl;
     cin >> opc;
+    
+    switch (opc)
+{
+case 1:
+    cout << "→ You find an old iron key (useful later)." << endl;
+    break;
+case 2:
+    cout << "→ You discover a partial map of the mansion behind the painting." << endl;
+    break;
+case 3:
+    cout << "→ The whispers give you a warning about “the cursed basement door.”" << endl;
+    break;
+} 
+    
+}while (opc > 3 || opc < 1);
 
 
     return 0;
