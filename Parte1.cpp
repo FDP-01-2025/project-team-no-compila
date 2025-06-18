@@ -63,20 +63,20 @@ do{
     cout << "3) Close your eyes and listen to the whispers" << endl;
     cin >> opc;
     
-    switch (opc)
+    switch (option)
 {
 case 1:
-    cout << "→ You find an old iron key (useful later)." << endl;
+    cout << " You find an old iron key (useful later)." << endl;
     break;
 case 2:
-    cout << "→ You discover a partial map of the mansion behind the painting." << endl;
+    cout << " You discover a partial map of the mansion behind the painting." << endl;
     break;
 case 3:
-    cout << "→ The whispers give you a warning about “the cursed basement door.”" << endl;
+    cout << " The whispers give you a warning about “the cursed basement door.”" << endl;
     break;
 } 
     
-}while (opc > 3 || opc < 1);
+}while (option > 3 || option < 1);
 
 
     return 0;
