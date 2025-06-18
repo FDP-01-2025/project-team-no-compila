@@ -50,6 +50,17 @@ int main(){
         cout << "Invalid opction. Selecta a valid option (1-5) " << endl;
         break;
     }
+    cout << "Event 1" << endl;
+    cout << "The storm strikes the rusty gate, which opens with a blood-curdling screech. The";
+    cout << "thunder illuminates the imposing Blackthorn Manor for seconds. On the damp ground, an old";
+    cout << "metal box rests in front of a dusty portrait whose face seems to follow their movements.";
+
+    cout << "PLAYER 1:" << endl;
+    cout << "Choose an option: " << endl;
+    cout << "1) Force open the metal box" << endl;
+    cout << "2) Inspect the portrait for clues" << endl;
+    cout << "3) Close your eyes and listen to the whispers" << endl;
+    cin >> opc;
 
 
     return 0;
