@@ -131,4 +131,45 @@ gameData menu()
             option = 0; // Set a value out of range to continue the loop
             continue;
         }
+        // Start of switch
+        switch (option)
+        {
+        // Create profile
+        case 1:
+            do
+            {
+                cout << "----Select an option----" << endl;
+                cout << "1. Profile: " << endl;
+                cout << "2. Enter your name: " << endl;
+                cout << "3. Exit" << endl;
+                cin >> option;
+                // Check if the input was invalid (for example, if a letter was entered)
+                if (cin.fail())
+                {
+                    cin.clear();            // Clear the error state
+                    cin.ignore(1000, '\n'); // Discard the incorrect input
+                    cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                    option = 0; // Set a value out of range to continue the loop
+                    continue;
+                }
+                switch (option)
+                {
+                case 1:
+                    // Show the saved profile name
+                    {
+                        string name;
+                        ifstream file("profile.txt");
+                        if (file.is_open())
+                        {
+                            getline(file, name);
+                            file.close();
+                            cout << "Profile name: " << name << endl;
+                        }
+                        else
+                        {
+                            cout << "No profile name saved yet." << endl;
+                        }
+                        break;
+                    }
+
 
