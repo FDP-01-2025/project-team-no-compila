@@ -105,3 +105,30 @@ void showObjects(gameData player)
     }
 }
 
+// Main menu where all the main options are available
+gameData menu()
+{
+    // Variable declaration
+    int option;
+    gameData player;
+    // Menu control
+    do
+    {
+        cout << "-----Menu-----" << endl;
+        cout << "1. Profile" << endl;
+        cout << "2. New game" << endl;
+        cout << "3. Saved game" << endl;
+        cout << "4. Exit" << endl;
+        cout << "5. Credits" << endl;
+        cin >> option;
+        // Check if the input was invalid (for example, if a letter was entered)
+        if (cin.fail())
+        {
+            // All this makes it so if a letter is entered, it tells them it's incorrect
+            cin.clear();            // Clear the error state
+            cin.ignore(1000, '\n'); // Discard the incorrect input
+            cout << "Invalid option. Enter a number between 1 and 5." << endl;
+            option = 0; // Set a value out of range to continue the loop
+            continue;
+        }
+
