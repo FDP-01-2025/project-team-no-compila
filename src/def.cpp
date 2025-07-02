@@ -60,3 +60,48 @@ gameData loadProgress()
     return player;
 }
 
+// Displays the objects obtained by the player during the game
+void showObjects(gameData player)
+{
+    for (int i = 0; i < 12; i++)
+    {
+        if (player.inventory[i] == 1)
+        {
+            cout << endl;
+            switch (i)
+            {
+            case key:
+                cout << "- Key" << endl;
+                break;
+            case dagger:
+                cout << "- Dagger" << endl;
+                break;
+            case medallion:
+                cout << "- Medallion" << endl;
+                break;
+            case lantern:
+                cout << "- Lantern" << endl;
+                break;
+            case spell:
+                cout << "- Spell" << endl;
+                break;
+            case map:
+                cout << "- Map" << endl;
+                break;
+            case parchment:
+                cout << "- Parchment" << endl;
+                break;
+            case blessedBottle:
+                cout << "- Blessed Bottle" << endl;
+                break;
+            case enchantment:
+                cout << "- Enchantment" << endl;
+                break;
+            case creatureName:
+                cout << "- Creature Name" << endl;
+                break;
+            }
+        }
+    }
+}
+
