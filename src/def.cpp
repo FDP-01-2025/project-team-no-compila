@@ -172,4 +172,32 @@ gameData menu()
                         break;
                     }
 
+                    // Enter the profile name and save it
+                    {
+                        string name;
+                        cout << "Enter your name: ";
+                        cin >> name;
+                        ofstream file("profile.txt");
+                        if (file.is_open())
+                        {
+                            file << name << endl;
+                            file.close();
+                            cout << "Name saved successfully." << endl;
+                        }
+                        else
+                        {
+                            cout << "Error saving the name." << endl;
+                        }
+                        break;
+                    }
+                    break;
+                case 3:
+                    // Exit profile options
+                    break;
+                default:
+                    cout << "Invalid option. Select a valid option (1-2)";
+                    break;
+                }
+            } while (option != 3); // Repeat until one of the options is chosen
+            break;
 
