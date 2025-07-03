@@ -310,3 +310,42 @@ do
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         pass = 1;
         progress(player); // Save progress
+
+        
+do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Follow the footprints that disappear into the darkness" << endl;
+            cout << "2) Explore a piece of furniture with strange indentations" << endl;
+            cout << "3) Observe the shadows that seem to move" << endl;
+            cin >> option;
+            // Start of switch for case 1, player 2
+            switch (option)
+            {
+            case 1:
+                cout << "- You discover a hidden trapdoor under the carpet." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You find a strange medallion." << endl;
+                player.inventory[medallion] = 1;
+                cout << endl;
+                break;
+            case 3:
+                cout << "- You perceive a ghostly figure pointing north." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 1, player 2
+            pass = 2;
+            phase = 2;
+            event = 0;
+            progress(player); // Save progress
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        break;
+    }
+
