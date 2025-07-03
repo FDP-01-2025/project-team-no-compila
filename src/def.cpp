@@ -201,7 +201,7 @@ gameData menu()
             } while (option != 3); // Repeat until one of the options is chosen
             break;
 
-case 2:
+        case 2:
             // Create a new game
             cout << "Enter a name for the game: " << endl;
             cin >> player.nameGame;
@@ -222,3 +222,23 @@ case 2:
             // Exit the game
             cout << "Thank you for playing." << endl;
             exit(0);
+
+        case 5:
+            // Credits of the game's creators
+            cout << "The Mansion of Blackthorn" << endl;
+            cout << "A game created by brilliant minds in the shadows." << endl;
+            cout << "Creators:" << endl;
+            cout << "Jose Ariel Álvarez Morales 00034725" << endl;
+            cout << "Diego Gabriel Bonilla Comandari 00147325" << endl;
+            cout << "Erick Jose Claros Lopez 00071125" << endl;
+            cout << "Angel Leonel Choto Garcia 00185725" << endl;
+            cout << "Thank you for playing. But remember: In Blackthorn, the shadows are always watching." << endl;
+            cout << endl;
+            break;
+        default:
+            cout << "Invalid option. Select a valid option (1-5) " << endl;
+            break;
+        }
+    } while (option != 4); // Repeat until one of the options is chosen
+    return player;
+}
