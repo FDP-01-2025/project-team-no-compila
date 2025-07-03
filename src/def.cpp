@@ -268,3 +268,45 @@ void phase1(gameData &player)
         cout << "storm illuminates the imposing Blackthorn Mansion for seconds. On the damp floor, an old ";
         cout << "metal box rests in front of a dusty portrait whose face seems to follow your movements." << endl;
 
+do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Force open the metal box" << endl;
+            cout << "2) Inspect the portrait for clues" << endl;
+            cout << "3) Close your eyes and listen to the whispers" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 1, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- You find an old iron key (useful later)." << endl;
+                player.inventory[key] = 1;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You discover a partial map of the mansion behind the painting." << endl;
+                player.inventory[map] = 1;
+                cout << endl;
+                break;
+            case 3:
+                cout << "- The whispers warn you about 'the cursed basement door'." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 1, player 1
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        pass = 1;
+        progress(player); // Save progress
