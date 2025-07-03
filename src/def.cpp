@@ -242,3 +242,29 @@ gameData menu()
     } while (option != 4); // Repeat until one of the options is chosen
     return player;
 }
+// Phase 1
+void phase1(gameData &player)
+{
+    int option;
+    int &phase = player.phase;
+    int &event = player.event;
+    int &pass = player.pass;
+    // Randomly choose events
+    if (event < 1 || event > 3)
+    {
+        event = rand() % 3 + 1;
+        progress(player);
+    }
+    // Start of switch
+    switch (event)
+    {
+    case 1:
+    {
+        // Event 1
+        cout << endl;
+        cout << "Entering the Blackthorn Mansion" << endl;
+        cout << "-----Phase 1-----" << endl;
+        cout << "The storm hits the rusty door, which opens with a chilling creak. The ";
+        cout << "storm illuminates the imposing Blackthorn Mansion for seconds. On the damp floor, an old ";
+        cout << "metal box rests in front of a dusty portrait whose face seems to follow your movements." << endl;
+
