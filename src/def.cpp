@@ -201,3 +201,24 @@ gameData menu()
             } while (option != 3); // Repeat until one of the options is chosen
             break;
 
+case 2:
+            // Create a new game
+            cout << "Enter a name for the game: " << endl;
+            cin >> player.nameGame;
+            cout << "Enter the name of player 1: " << endl;
+            cin >> player.player1;
+            cout << "Enter the name of player 2: " << endl;
+            cin >> player.player2;
+            cout << endl;
+            player.phase = 1;
+            progress(player); // Save progress
+            return player;    // Enter the game phases
+        case 3:
+            // Load the progress of the previously played game
+            player = loadProgress();
+            cout << endl;
+            return player; // Enter the saved game phase
+        case 4:
+            // Exit the game
+            cout << "Thank you for playing." << endl;
+            exit(0);
