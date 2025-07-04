@@ -496,3 +496,59 @@ case 3:
         pass = 1;
         progress(player); // Save progress
 
+do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Run after your partner" << endl;
+            cout << "2) Investigate the nearby collapsed room" << endl;
+            cout << "3) Analyze the writings on the walls" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 3, player 2
+            switch (option)
+            {
+            case 1:
+                cout << "- You become stronger as a team." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You discover the remains of ancient explorers (warning)." << endl;
+                cout << endl;
+                break;
+            case 3:
+                cout << "- You learn a spell to weaken entities." << endl;
+                player.inventory[enchantment] = 1;
+                cout << endl;
+                break;
+            } // Ends the switch for case 3, player 2
+            cout << "-------End of Phase 1-------" << endl;
+            cout << endl;
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        break;
+    }
+        // Ends switch
+    }
+    cout << "Auto-saving game " << endl;
+    cout << endl;
+    // Auto-save after each event
+    pass = 2;
+    phase = 2;
+    event = 0;
+    progress(player);
+    return;
+}
+
+
