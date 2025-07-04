@@ -551,4 +551,71 @@ do
     return;
 }
 
+// Phase 2
+void phase2(gameData &player)
+{
+    int option;
+    int &phase = player.phase;
+    int &event = player.event;
+    int &pass = player.pass;
+    // Randomly choose the event
+    if (event < 1 || event > 3)
+    {
+        event = rand() % 3 + 1;
+        progress(player); // Save progress
+    }
+    // Start of switch
+    switch (event)
+    {
+    case 1:
+    {
+        // Event 1
+        cout << endl;
+        cout << "-----PHASE 2: Cursed Library-----" << endl;
+        cout << "A giant library stretches before you. The books whisper. ";
+        cout << "Some open by themselves, revealing illegible text. A staircase creaks, ";
+        cout << "as if someone invisible is climbing. In the center, an open book. ";
+        cout << "on a pedestal radiates energy." << endl;
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Examine the book on the pedestal" << endl;
+            cout << "2) Go up the stairs" << endl;
+            cout << "3) Keep your distance as a precaution" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 1, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- You obtain a key spell for the future." << endl;
+                player.inventory[spell] = 1; // Save obtained item
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You find a strange medallion." << endl;
+                player.inventory[medallion] = 1; // Save obtained item
+                cout << endl;
+                break;
+            case 3:
+                cout << "- You avoid the automatic curse of the pedestal." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 1, player 1
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        pass = 1;
+        progress(player); // Save progress
 
