@@ -447,4 +447,52 @@ do
         break;
     }
 
+case 3:
+    {
+        // Event 3
+        cout << "Entering the Blackthorn Mansion" << endl;
+        cout << "-----Phase 1-----" << endl;
+        cout << "The house creaks and groans. A gust of wind knocks a book open down the hallway. ";
+        cout << "In the background, a door slams shut violently, as if pushed by invisible hands." << endl;
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Chase the flying book" << endl;
+            cout << "2) Try to force the closed door" << endl;
+            cout << "3) Step back to find another safe route" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 3, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- You find an old iron key (useful later)." << endl;
+                player.inventory[key] = 1;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You find resistance, but manage to open a hidden passage." << endl;
+                cout << endl;
+                break;
+            case 3:
+                cout << "- You find a protective symbol on the ground that activates a seal." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 3, player 1
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        pass = 1;
+        progress(player); // Save progress
 
