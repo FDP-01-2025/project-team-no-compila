@@ -712,4 +712,57 @@ case 2:
         pass = 1;
         progress(player); // Save progress
 
+do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Help your partner fight" << endl;
+            cout << "2) Cast a spell learned previously" << endl;
+            cout << "3) Jump the crack to advance alone" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 2, player 2
+            switch (option)
+            {
+            case 1:
+                cout << "- They strengthen their confidence." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- If you have obtained the item." << endl;
+                if (player.inventory[enchantment] == 1)
+                {
+                    cout << "- Temporarily paralyzes the creature." << endl;
+                    player.inventory[enchantment] = 0; // Once used, it is removed from inventory
+                    cout << endl;
+                }
+                else
+                {
+                    cout << "- You have not learned any enchantment. You cannot help your partner." << endl;
+                }
+                break;
+            case 3:
+                cout << "- You find a shortcut, but you will be alone." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 2, player 2
+            pass = 2;
+            phase = 3;
+            event = 0;
+            progress(player); // Save progress
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        break;
+    }
 
