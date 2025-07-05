@@ -663,54 +663,53 @@ do
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         break;
     }
-
 case 2:
-    {
-        // Event 2
-        cout &lt;&lt; endl;
-        cout &lt;&lt; &quot;-----PHASE 2: Cursed Library-----&quot; &lt;&lt; endl;
-        cout &lt;&lt; &quot;A deep crack opens in the floor. A dark tentacle emerges, &quot;;
-        cout &lt;&lt; &quot;trying to drag everything it finds. The organ music begins to play from
-above.&quot; &lt;&lt; endl;
-        do
-        {
-            cout &lt;&lt; endl;
-            cout &lt;&lt; &quot;Inventory: &quot; &lt;&lt; endl;
-            showObjects(player);
-            cout &lt;&lt; endl;
-            cout &lt;&lt; &quot;PLAYER 1: &quot; &lt;&lt; player.player1 &lt;&lt; endl;
-            cout &lt;&lt; &quot;Choose an option: &quot; &lt;&lt; endl;
-            cout &lt;&lt; &quot;1) Fight the tentacle&quot; &lt;&lt; endl;
-            cout &lt;&lt; &quot;2) Find the source of the music&quot; &lt;&lt; endl;
-            cout &lt;&lt; &quot;3) Run between the shelves&quot; &lt;&lt; endl;
-            cin &gt;&gt; option;
+    {
+        // Event 2
+        cout << endl;
+        cout << "-----PHASE 2: Cursed Library-----" << endl;
+        cout << "A deep crack opens in the floor. A dark tentacle emerges, ";
+        cout << "trying to drag everything it finds. The organ music begins to play from above." << endl;
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Fight the tentacle" << endl;
+            cout << "2) Find the source of the music" << endl;
+            cout << "3) Run between the shelves" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 2, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- You manage to injure it and buy time." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You find a strange medallion." << endl;
+                player.inventory[medallion] = 1; // Save obtained item
+                cout << endl;
+                break;
+            case 3:
+                cout << "- You find an alternative corridor." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 2, player 1
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        pass = 1;
+        progress(player); // Save progress
 
-            // Check if the input was invalid (for example, if a letter was entered)
-            if (cin.fail())
-            {
-                cin.clear();            // Clear the error state
-                cin.ignore(1000, &#39;\n&#39;); // Discard the incorrect input
-                cout &lt;&lt; &quot;Invalid option. Enter a number between 1 and 3.&quot; &lt;&lt; endl;
-                option = 0; // Set a value out of range to continue the loop
-                continue;
-            }
-            // Start of switch for case 2, player 1
-            switch (option)
-            {
-            case 1:
-                cout &lt;&lt; &quot;- You manage to injure it and buy time.&quot; &lt;&lt; endl;
-                cout &lt;&lt; endl;
-                break;
-            case 2:
-                cout &lt;&lt; &quot;- You find a strange medallion.&quot; &lt;&lt; endl;
-                player.inventory[medallion] = 1; // Save obtained item
-                cout &lt;&lt; endl;
-                break;
-            case 3:
-                cout &lt;&lt; &quot;- You find an alternative corridor.&quot; &lt;&lt; endl;
-                cout &lt;&lt; endl;
-                break;
-            } // Ends the switch for case 2, player 1
-        } while (option &lt; 1 || option &gt; 3); // Repeat until an option is chosen
-        pass = 1;
-        progress(player); // Save progress
+
