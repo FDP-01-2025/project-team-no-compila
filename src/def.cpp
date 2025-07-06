@@ -815,3 +815,61 @@ do
         pass = 1;
         progress(player); // Save progress
 
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Clap imitating the movements" << endl;
+            cout << "2) Read a floating book in flight" << endl;
+            cout << "3) Search for the roots of the phenomenon in the ceiling" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 3, player 2
+            switch (option)
+            {
+            case 1:
+                cout << "- Gains the sympathy of a spirit that offers guidance." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- Learns the true name of the central creature." << endl;
+                player.inventory[creatureName] = 1; // Save obtained item
+                cout << endl;
+                break;
+            case 3:
+                cout << "- A secret compartment opens revealing a ceremonial dagger (useful in future confrontations)." << endl;
+                player.inventory[dagger] = 1; // Save obtained item
+                cout << endl;
+                break;
+            } // Ends the switch for case 3, player 2
+            cout << "-------End of Phase 2-------" << endl;
+            cout << endl;
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        break;
+    }
+        // Ends switch
+    }
+    cout << "Auto-saving game " << endl;
+    cout << endl;
+    // Auto-save after each event
+    pass = 2;
+    phase = 3;
+    event = 0;
+    progress(player);
+    return;
+}
+
+
+
