@@ -1166,3 +1166,63 @@ case 3:
             progress(player); // Save progress
         } while (option < 1 || option > 3); // Repeat until an option is chosen
 
+do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Read old menus" << endl;
+            cout << "2) Look under the table" << endl;
+            cout << "3) Throw holy water (if you obtained it before)" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 3, player 2
+            switch (option)
+            {
+            case 1:
+                cout << "- The names of the guests reveal: ancient cultists of the mansion." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You find a strange creature chained that whispers clues about the basement." << endl;
+                cout << endl;
+                break;
+            case 3:
+                // Condition only if the item has been obtained
+                if (player.inventory[blessedBottle] == 1)
+                {
+                    cout << "- Completely neutralizes any hidden entity in the room." << endl;
+                    player.inventory[blessedBottle] = 0; // Once used, it is removed from inventory
+                    cout << endl;
+                }
+                else
+                {
+                    cout << "- You do not have any bottle with holy water. You cannot do anything." << endl;
+                }
+                break;
+            } // Ends the switch for case 3, player 2
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+    } // Ends switch
+    }
+    cout << "-------End of Phase 3-------" << endl;
+    cout << endl;
+    cout << "Auto-saving game " << endl;
+    cout << endl;
+    // Auto-save after each event
+    pass = 2;
+    phase = 4;
+    event = 0;
+    progress(player);
+    return;
+}
