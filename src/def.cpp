@@ -1344,3 +1344,57 @@ void phase4(gameData &player)
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         break;
     }
+
+case 2:
+    {
+        // Event 2
+        cout << endl;
+        cout << "----START OF PHASE 4: The Whispering Hall----" << endl;
+        cout << "A dense, giant shadow descends from the ceiling. It is the Primordial Shadow, manifestation of ancient rites." << endl;
+        do
+        {
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Use the ceremonial dagger against the shadow" << endl;
+            cout << "2) Recite the symbols from the plaque" << endl;
+            cout << "3) Run to the next room" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 2, player 1
+            switch (option)
+            {
+            case 1:
+                // Condition only if the item has been obtained
+                if (player.inventory[dagger] == 1)
+                {
+                    cout << "- Inflicts spiritual damage, weakening it." << endl;
+                    cout << endl;
+                }
+                else
+                {
+                    cout << "- You do not have any ceremonial dagger. You cannot do any damage." << endl;
+                }
+                break;
+            case 2:
+                cout << "- Stuns the creature for several seconds." << endl;
+                cout << endl;
+                break;
+            case 3:
+                cout << "- Manages to advance, but the creature remains free." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 2, player 1
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        pass = 1;
+        progress(player); // Save progress
