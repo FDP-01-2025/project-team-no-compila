@@ -871,5 +871,53 @@ do
     return;
 }
 
+case 2:
+    {
+        // Event 2
+        cout << endl;
+        cout << "-----PHASE 2: Cursed Library-----" << endl;
+        cout << "A deep crack opens in the floor. A dark tentacle emerges, ";
+        cout << "trying to drag everything it finds. The organ music begins to play from above." << endl;
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Fight the tentacle" << endl;
+            cout << "2) Find the source of the music" << endl;
+            cout << "3) Run between the shelves" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 2, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- You manage to injure it and buy time." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You find a strange medallion." << endl;
+                player.inventory[medallion] = 1; // Save obtained item
+                cout << endl;
+                break;
+            case 3:
+                cout << "- You find an alternative corridor." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 2, player 1
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        pass = 1;
+        progress(player); // Save progress
 
 
