@@ -268,7 +268,7 @@ void phase1(gameData &player)
         cout << "storm illuminates the imposing Blackthorn Mansion for seconds. On the damp floor, an old ";
         cout << "metal box rests in front of a dusty portrait whose face seems to follow your movements." << endl;
 
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -311,8 +311,7 @@ do
         pass = 1;
         progress(player); // Save progress
 
-        
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -447,7 +446,7 @@ do
         break;
     }
 
-case 3:
+    case 3:
     {
         // Event 3
         cout << "Entering the Blackthorn Mansion" << endl;
@@ -496,7 +495,7 @@ case 3:
         pass = 1;
         progress(player); // Save progress
 
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -619,7 +618,7 @@ void phase2(gameData &player)
         pass = 1;
         progress(player); // Save progress
 
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -663,7 +662,7 @@ do
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         break;
     }
-case 2:
+    case 2:
     {
         // Event 2
         cout << endl;
@@ -712,7 +711,7 @@ case 2:
         pass = 1;
         progress(player); // Save progress
 
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -939,7 +938,7 @@ void phase3(gameData &player)
             progress(player); // Save progress
         } while (option < 1 || option > 3); // Repeat until an option is chosen
 
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -995,3 +994,60 @@ do
         progress(player);
         break;
     }
+
+    case 2:
+    {
+        // Event 2
+        cout << endl;
+        cout << "-----PHASE 3: The Hall of Portraits-----" << endl;
+        cout << "The walls begin to crack, the portraits tremble, and from one of them emerges a trapped spirit ";
+        cout << "floating slowly towards them with outstretched hands." << endl;
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Speak to him compassionately" << endl;
+            cout << "2) Attack with the ceremonial dagger" << endl;
+            cout << "3) Return to the library" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 2, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- The spirit reveals information about a hidden exit, but warns of a guardian ahead." << endl;
+                cout << endl;
+                break;
+            case 2:
+                // Condition only if the item has been obtained
+                if (player.inventory[dagger] == 1)
+                {
+                    cout << "- The spirit disappears, but warning signs remain." << endl;
+                    cout << endl;
+                }
+                else
+                {
+                    cout << "- You do not have the dagger to use. You do no damage but it disappears." << endl;
+                }
+                break;
+            case 3:
+                cout << "- You find an ancient parchment with instructions to neutralize lesser entities." << endl;
+                player.inventory[parchment] = 1; // Save obtained item
+                cout << endl;
+                break;
+            } // Ends the switch for case 2, player 1
+            pass = 1;
+            progress(player); // Save progress
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
