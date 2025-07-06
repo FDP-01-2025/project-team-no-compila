@@ -1290,3 +1290,57 @@ void phase4(gameData &player)
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         pass = 1;
         progress(player); // Save progress
+
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Respond to the whispers" << endl;
+            cout << "2) Touch the clocks" << endl;
+            cout << "3) Illuminate the dark corners with the lantern" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 1, player 2
+            switch (option)
+            {
+            case 1:
+                cout << "- The voices offer forbidden knowledge about the central creature." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- Adjusts the time of the hallway and slows the distortion." << endl;
+                cout << endl;
+                break;
+            case 3:
+                // Condition only if the item has been obtained
+                if (player.inventory[lantern] == 1)
+                {
+                    cout << "- Temporarily banishes lesser entities." << endl;
+                    player.inventory[lantern] = 0; // Once used, it is removed from inventory
+                    cout << endl;
+                    break;
+                }
+                else
+                {
+                    cout << "- You do not have any lantern. You walk in total darkness." << endl;
+                }
+            } // Ends the switch for case 1, player 2
+            pass = 2;
+            phase = 5;
+            event = 0;
+            progress(player); // Save progress
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        break;
+    }
