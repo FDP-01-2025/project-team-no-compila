@@ -939,3 +939,59 @@ void phase3(gameData &player)
             progress(player); // Save progress
         } while (option < 1 || option > 3); // Repeat until an option is chosen
 
+do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Light incense to calm the environment" << endl;
+            cout << "2) Recite the true name learned before" << endl;
+            cout << "3) Draw protective symbols on the ground" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 2, player 2
+            switch (option)
+            {
+            case 1:
+                cout << "- The atmosphere softens and reduces spiritual aggression for a few minutes." << endl;
+                cout << endl;
+                break;
+            case 2:
+                // Condition only if the item has been obtained
+                if (player.inventory[creatureName] == 1)
+                {
+                    cout << "- The paintings whisper secrets of the final ritual." << endl;
+                    player.inventory[creatureName] = 0; // Once used, it is removed from inventory
+                    cout << endl;
+                }
+                else
+                {
+                    cout << "- You do not know the true name of the creature, and the ritual fails." << endl;
+                }
+                break;
+            case 3:
+                cout << "- Forms a safe circle to rest momentarily." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 2, player 2
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        cout << "Auto-saving game " << endl;
+        cout << endl;
+        // Auto-save after each event
+        pass = 2;
+        phase = 4;
+        event = 0;
+        progress(player);
+        break;
+    }
