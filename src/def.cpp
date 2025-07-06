@@ -1116,3 +1116,53 @@ do
         progress(player);
         break;
     }
+
+case 3:
+    {
+        // Event 3
+        cout << endl;
+        cout << "----START OF PHASE 3: The Hall of Portraits----" << endl;
+        cout << "At the end of the room, a double door slowly opens by itself. Inside, an old-fashioned dining room. ";
+        cout << "The plates are set, but the food is rotten. The lamps flicker erratically." << endl;
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Check the lamps" << endl;
+            cout << "2) Carefully examine the plates" << endl;
+            cout << "3) Hit the large central table" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 3, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- You find an ancient parchment with instructions to neutralize lesser entities." << endl;
+                player.inventory[parchment] = 1; // Save obtained item
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You discover the symbols engraved on the plates that are part of the exorcism ritual." << endl;
+                cout << endl;
+                break;
+            case 3:
+                cout << "- A piercing scream comes from beneath the wood." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 3, player 1
+            pass = 1;
+            progress(player); // Save progress
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+
