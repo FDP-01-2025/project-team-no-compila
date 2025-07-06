@@ -1051,7 +1051,7 @@ void phase3(gameData &player)
             pass = 1;
             progress(player); // Save progress
         } while (option < 1 || option > 3); // Repeat until an option is chosen
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -1117,7 +1117,7 @@ do
         break;
     }
 
-case 3:
+    case 3:
     {
         // Event 3
         cout << endl;
@@ -1166,7 +1166,7 @@ case 3:
             progress(player); // Save progress
         } while (option < 1 || option > 3); // Repeat until an option is chosen
 
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -1226,3 +1226,67 @@ do
     progress(player);
     return;
 }
+
+// Phase 4
+void phase4(gameData &player)
+{
+    int option;
+    int &phase = player.phase;
+    int &event = player.event;
+    int &pass = player.pass;
+    // Randomly choose the event
+    if (event < 1 || event > 3)
+    {
+        event = rand() % 3 + 1;
+        progress(player); // Save progress
+    }
+    // Start of switch
+    switch (event)
+    {
+    case 1:
+    {
+        // Event 1
+        cout << endl;
+        cout << "----START OF PHASE 4: The Whispering Hall----" << endl;
+        cout << "The hallway is narrow and dark. Faceless voices whisper your worst fears. ";
+        cout << "The walls seem to move, the clocks at the ends spin forward and backward." << endl;
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Sing loudly to block the whispers" << endl;
+            cout << "2) Hit the walls" << endl;
+            cout << "3) Cover your ears and move quickly" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 1, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- The voices fade temporarily." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- A secret door opens revealing a direct shortcut." << endl;
+                cout << endl;
+                break;
+            case 3:
+                cout << "- You do not discover any additional secrets." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 1, player 1
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        pass = 1;
+        progress(player); // Save progress
