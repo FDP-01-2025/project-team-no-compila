@@ -871,13 +871,30 @@ do
     return;
 }
 
-case 2:
+// Phase 3
+void phase3(gameData &player)
+{
+    int option;
+    int &phase = player.phase;
+    int &event = player.event;
+    int &pass = player.pass;
+    // Randomly choose the event
+    if (event < 1 || event > 3)
     {
-        // Event 2
+        event = rand() % 3 + 1;
+        progress(player); // Save progress
+    }
+    // Start of switch
+    switch (event)
+    {
+    case 1:
+    {
+        // Event 1
         cout << endl;
-        cout << "-----PHASE 2: Cursed Library-----" << endl;
-        cout << "A deep crack opens in the floor. A dark tentacle emerges, ";
-        cout << "trying to drag everything it finds. The organ music begins to play from above." << endl;
+        cout << "----START OF PHASE 3: The Hall of Portraits----" << endl;
+        cout << "They cross a long hallway where dozens of old portraits hang on the walls. ";
+        cout << "Their eyes seem to follow every step. Some paintings are torn, others bleed slowly from the corners. ";
+        cout << "The air becomes cold." << endl;
         do
         {
             cout << endl;
@@ -886,9 +903,9 @@ case 2:
             cout << endl;
             cout << "PLAYER 1: " << player.player1 << endl;
             cout << "Choose an option: " << endl;
-            cout << "1) Fight the tentacle" << endl;
-            cout << "2) Find the source of the music" << endl;
-            cout << "3) Run between the shelves" << endl;
+            cout << "1) Examine a torn portrait and the blood" << endl;
+            cout << "2) Touch an intact portrait" << endl;
+            cout << "3) Avoid any contact with the paintings" << endl;
             cin >> option;
             // Check if the input was invalid (for example, if a letter was entered)
             if (cin.fail())
@@ -899,25 +916,26 @@ case 2:
                 option = 0; // Set a value out of range to continue the loop
                 continue;
             }
-            // Start of switch for case 2, player 1
+            // Start of switch for case 1, player 1
             switch (option)
             {
             case 1:
-                cout << "- You manage to injure it and buy time." << endl;
+                cout << "- You discover a familiar face: the previous explorer who disappeared years ago. ";
+                cout << "You find his diary with warnings about the 'Primordial Shadow'." << endl;
+                cout << ".........If the shadow is released.....the world will be condemned......" << endl;
                 cout << endl;
                 break;
             case 2:
-                cout << "- You find a strange medallion." << endl;
-                player.inventory[medallion] = 1; // Save obtained item
+                cout << "- You find an ancient parchment with instructions to neutralize lesser entities." << endl;
+                player.inventory[parchment] = 1; // Save obtained item
                 cout << endl;
                 break;
             case 3:
-                cout << "- You find an alternative corridor." << endl;
+                cout << "- You advance without activating the mystical traps in the room." << endl;
                 cout << endl;
                 break;
-            } // Ends the switch for case 2, player 1
+            } // Ends the switch for case 1, player 1
+            pass = 1;
+            progress(player); // Save progress
         } while (option < 1 || option > 3); // Repeat until an option is chosen
-        pass = 1;
-        progress(player); // Save progress
-
 
