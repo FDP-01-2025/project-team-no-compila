@@ -1051,3 +1051,68 @@ void phase3(gameData &player)
             pass = 1;
             progress(player); // Save progress
         } while (option < 1 || option > 3); // Repeat until an option is chosen
+do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Offer the protective medallion" << endl;
+            cout << "2) Sing the learned song" << endl;
+            cout << "3) Try to distract it" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 2, player 2
+            switch (option)
+            {
+            case 1:
+                // Condition only if the item has been obtained
+                if (player.inventory[medallion] == 1)
+                {
+                    cout << "- The spirit absorbs the energy, weakening." << endl;
+                    player.inventory[medallion] = 0; // Once used, it is removed from inventory
+                    cout << endl;
+                }
+                else
+                {
+                    cout << "- You do not have any medallion. You cannot do anything." << endl;
+                }
+                break;
+            case 2:
+                // Condition only if the item has been obtained
+                if (player.inventory[spell] == 1)
+                {
+                    cout << "- The spirit cries and thanks you before fading away." << endl;
+                    player.inventory[spell] = 0; // Once used, it is removed from inventory
+                    cout << endl;
+                }
+                else
+                {
+                    cout << "- You have not learned any spell. You cannot do anything." << endl;
+                }
+                break;
+            case 3:
+                cout << "- They buy time for both to escape to the next room." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 2, player 2
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        cout << "Auto-saving game " << endl;
+        cout << endl;
+        // Auto-save after each event
+        pass = 2;
+        phase = 4;
+        event = 0;
+        progress(player);
+        break;
+    }
