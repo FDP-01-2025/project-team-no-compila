@@ -1345,7 +1345,7 @@ void phase4(gameData &player)
         break;
     }
 
-case 2:
+    case 2:
     {
         // Event 2
         cout << endl;
@@ -1399,7 +1399,7 @@ case 2:
         pass = 1;
         progress(player); // Save progress
 
-do
+        do
         {
             cout << endl;
             cout << "Inventory: " << endl;
@@ -1452,3 +1452,51 @@ do
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         break;
     }
+
+    case 3:
+    {
+        // Event 3
+        cout << endl;
+        cout << "----START OF PHASE 4: The Whispering Hall----" << endl;
+        cout << "While fleeing, they enter a circular room where multiple doors appear, ";
+        cout << "all slowly turning as if the space itself were folding." << endl;
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 1: " << player.player1 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Choose the illuminated door" << endl;
+            cout << "2) Choose the black door" << endl;
+            cout << "3) Let your partner decide" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 3, player 1
+            switch (option)
+            {
+            case 1:
+                cout << "- You move towards the core of the mansion." << endl;
+                cout << endl;
+                break;
+            case 2:
+                cout << "- You enter a hallway full of bloody paintings." << endl;
+                cout << endl;
+                break;
+            case 3:
+                cout << "- You synchronize your fate, increasing the joint spiritual strength." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 3, player 1
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        pass = 1;
+        progress(player); // Save progress
