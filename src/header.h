@@ -22,3 +22,14 @@ struct gameData {
     int pass;
     int inventory[12] = {0};
 };
+
+void progress(gameData player);
+gameData loadProgress();
+void showObjects(gameData player);
+gameData menu();
+void phase1(gameData &player);
+void phase2(gameData &player);
+void phase3(gameData &player);
+void phase4(gameData &player);
+void phase5(gameData &player);
+void finals(gameData &player);
