@@ -1694,63 +1694,55 @@ void phase5(gameData &player)
     progress(player); // Save progress
 }
 
-// Game endings 
-void finals(gameData &player) 
-{ 
-    int &phase = player.phase; 
-    int &event = player.event; 
+// Game endings
+void finals(gameData &player)
+{
+    int &phase = player.phase;
+    int &event = player.event;
+    int &pass = player.pass;
+    // Here we integrate the possible endings:
+    // Ending 1
+    // Condition only if all objects have been obtained
+    if (player.inventory[key] == 1 && player.inventory[medallion] == 1 && player.inventory[parchment] == 1)
+    {
+        cout << endl;
+        cout << "-----------ENDING------------" << endl;
+        cout << "The Complete Purification" << endl;
+        cout << "They managed to gather all the elements, follow the correct clues, ";
+        cout << "face the Primordial Shadow and seal the evil forever. ";
+        cout << "Both characters emerge at dawn as the mansion collapses. ";
+        cout << "The singing of the first birds can be heard. They are safe." << endl;
+    }
+    // Ending 2
+    // Condition only if at least one object has been obtained
+    else if (player.inventory[key] == 1 || player.inventory[medallion] == 1 || player.inventory[parchment] == 1)
+    {
+        cout << endl;
+        cout << "-----------ENDING------------" << endl;
+        cout << "The Dark Echo" << endl;
+        cout << "Some rituals or decisions failed. The mansion remains partially clean, ";
+        cout << "but some spirits manage to escape into the outside world. The air is heavier, ";
+        cout << "and they feel that they have not finished everything. At least they saved their lives." << endl;
+    }
+    // Ending 3
+    // Condition if no object has been obtained
+    else
+    {
+        cout << endl;
+        cout << "-----------ENDING------------" << endl;
+        cout << "The Sealed Fate" << endl;
+        cout << "They fled without performing the ritual or failed severely. The entities dominate ";
+        cout << "the mansion completely. A dark portal remains open permanently. ";
+        cout << "Years later, more reckless visitors disappear. ";
+        cout << "No one speaks of the Blackthorn Mansion again." << endl;
+    }
+    cout << "Auto-saving game " << endl;
+    cout << endl;
+    // Auto-save after each event
+    pass = 1;
+    phase = 7;
+    event = 0;
+    progress(player);
+    return;
+}
 
-    int &pass = player.pass; 
-    // Here we integrate the possible endings: 
-    // Ending 1 
-    // Condition only if all objects have been obtained 
-    if (player.inventory[key] == 1 && player.inventory[medallion] == 1 && player.inventory[parchment] == 1) 
-
-    { 
-        cout << endl; 
-        cout << "-----------ENDING------------" << endl; 
-        cout << "The Complete Purification" << endl; 
-        cout << "They managed to gather all the elements, follow the correct clues, "; 
-        cout << "face the Primordial Shadow and seal the evil forever. "; 
-        cout << "Both characters emerge at dawn as the mansion collapses. "; 
-        cout << "The singing of the first birds can be heard. They are safe." << endl; 
-
-    } 
-    // Ending 2 
-    // Condition only if at least one object has been obtained 
-    else if (player.inventory[key] == 1 || player.inventory[medallion] == 1 || player.inventory[parchment] == 1) 
-
-    { 
-        cout << endl; 
-        cout << "-----------ENDING------------" << endl; 
-        cout << "The Dark Echo" << endl; 
-        cout << "Some rituals or decisions failed. The mansion remains partially clean, "; 
-        cout << "but some spirits manage to escape into the outside world. The air is heavier, "; 
-        cout << "and they feel that they have not finished everything. At least they saved their lives." << endl; 
-
-    } 
-    // Ending 3 
-    // Condition if no object has been obtained 
-    else 
-
-    { 
-        cout << endl; 
-        cout << "-----------ENDING------------" << endl; 
-        cout << "The Sealed Fate" << endl; 
-        cout << "They fled without performing the ritual or failed severely. The entities dominate "; 
-        cout << "the mansion completely. A dark portal remains open permanently. "; 
-        cout << "Years later, more reckless visitors disappear. "; 
-        cout << "No one speaks of the Blackthorn Mansion again." << endl; 
-
-    } 
-    cout << "Auto-saving game " << endl; 
-    cout << endl; 
-
-    // Auto-save after each event 
-    pass = 1; 
-    phase = 7; 
-    event = 0; 
-    progress(player); 
-    return; 
-
-} 
