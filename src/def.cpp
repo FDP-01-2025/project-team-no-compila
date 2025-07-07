@@ -1603,10 +1603,8 @@ void phase5(gameData &player)
             cout << "Invalid option. Enter a number between 1 and 3." << endl;
             option = 0; // Set a value out of range to continue the loop
             continue;
-
-            
         }
-// Start of switch
+        // Start of switch
         switch (option)
         {
         case 1:
@@ -1624,6 +1622,33 @@ void phase5(gameData &player)
                 cout << "- Partial ritual; traces of entities remain in the place." << endl;
                 cout << "Consequence: Some entities are released and escape into the outside world. ";
                 cout << "The mansion remains abandoned, but dangerous." << endl;
+                cout << endl;
+            }
+            // Condition if no object has been obtained
+            else
+            {
+                cout << "- They unleash the complete wrath of the mansion while fleeing." << endl;
+                cout << "Consequence: The entire structure collapses ";
+                cout << "as the players flee through narrow passages." << endl;
+                cout << endl;
+            }
+            break;
+
+        case 2:
+            // Condition only if at least one object has been obtained
+            if (player.inventory[key] == 1 || player.inventory[medallion] == 1 || player.inventory[parchment] == 1)
+            {
+                cout << "- Partial ritual; traces of entities remain in the place." << endl;
+                cout << "Consequence: Some entities are released and escape into the outside world. ";
+                cout << "The mansion remains abandoned, but dangerous." << endl;
+                cout << endl;
+            }
+            // Condition only if all objects have been obtained
+            else if (player.inventory[key] == 1 && player.inventory[medallion] == 1 && player.inventory[parchment] == 1)
+            {
+                cout << "- The complete expulsion seal is activated." << endl;
+                cout << "Consequence: The mansion trembles, the dark energy is absorbed." << endl;
+                cout << "The voices of ancient condemned spirits thank the players." << endl;
                 cout << endl;
             }
             // Condition if no object has been obtained
