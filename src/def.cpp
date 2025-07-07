@@ -1563,3 +1563,44 @@ void phase4(gameData &player)
     progress(player);
     return;
 }
+
+// Phase 5
+void phase5(gameData &player)
+{
+    int option;
+    int &phase = player.phase;
+    int &event = player.event;
+    int &pass = player.pass;
+    // Phase 5
+    cout << endl;
+    cout << "----START OF PHASE 5: The Final Ritual----" << endl;
+    cout << "Here the story approaches possible endings based on previous decisions. But first: " << endl;
+    cout << "They arrive at an underground sanctuary. Three pedestals await specific offerings: " << endl;
+    cout << "The iron key." << endl;
+    cout << "The medallion." << endl;
+    cout << "The parchment." << endl;
+    cout << "If these objects were obtained during previous phases:" << endl;
+    cout << "The ritual can be completed correctly (approaching a good ending)." << endl;
+    cout << "If objects are missing, the ritual will be unstable." << endl;
+    cout << "Both players must decide:" << endl;
+    do
+    {
+        cout << endl;
+        cout << "Inventory: " << endl;
+        showObjects(player);
+        cout << endl;
+        cout << "PLAYER 1: " << player.player1 << " PLAYER 2: " << player.player2 << endl;
+        cout << "Choose an option: " << endl;
+        cout << "1) Place all found objects." << endl;
+        cout << "2) Place only what you have." << endl;
+        cout << "3) Reject the ritual and flee." << endl;
+        cin >> option;
+        // Check if the input was invalid (for example, if a letter was entered)
+        if (cin.fail())
+        {
+            cin.clear();            // Clear the error state
+            cin.ignore(1000, '\n'); // Discard the incorrect input
+            cout << "Invalid option. Enter a number between 1 and 3." << endl;
+            option = 0; // Set a value out of range to continue the loop
+            continue;
+        }
