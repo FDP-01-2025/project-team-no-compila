@@ -1660,3 +1660,36 @@ void phase5(gameData &player)
                 cout << endl;
             }
             break;
+        case 3:
+            // Condition if no object has been obtained
+            cout << "- They unleash the complete wrath of the mansion while fleeing." << endl;
+            cout << "Consequence: The entire structure collapses ";
+            cout << "as the players flee through narrow passages." << endl;
+            cout << endl;
+            // Condition only if all objects have been obtained
+            if (player.inventory[key] == 1 && player.inventory[medallion] == 1 && player.inventory[parchment] == 1)
+            {
+                cout << "- The complete expulsion seal is activated." << endl;
+                cout << "Consequence: The mansion trembles, the dark energy is absorbed." << endl;
+                cout << "The voices of ancient condemned spirits thank the players." << endl;
+                cout << endl;
+            }
+            // Condition only if at least one object has been obtained
+            else if (player.inventory[key] == 1 || player.inventory[medallion] == 1 || player.inventory[parchment] == 1)
+            {
+                cout << "- Partial ritual; traces of entities remain in the place." << endl;
+                cout << "Consequence: Some entities are released and escape into the outside world. ";
+                cout << "The mansion remains abandoned, but dangerous." << endl;
+                cout << endl;
+            }
+            break;
+        } // Ends the switch
+    } while (option < 1 || option > 3); // Repeat until an option is chosen
+    cout << "-------End of Phase 5-------" << endl;
+    cout << "Auto-saving game " << endl;
+    // Auto-save after each event
+    pass = 1;
+    phase = 6;
+    event = 0;
+    progress(player); // Save progress
+}
