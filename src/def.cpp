@@ -1500,3 +1500,66 @@ void phase4(gameData &player)
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         pass = 1;
         progress(player); // Save progress
+
+        do
+        {
+            cout << endl;
+            cout << "Inventory: " << endl;
+            showObjects(player);
+            cout << endl;
+            cout << "PLAYER 2: " << player.player2 << endl;
+            cout << "Choose an option: " << endl;
+            cout << "1) Follow the sound of water" << endl;
+            cout << "2) Use the partial map found at the beginning" << endl;
+            cout << "3) Leave it to chance (wander and point)" << endl;
+            cin >> option;
+            // Check if the input was invalid (for example, if a letter was entered)
+            if (cin.fail())
+            {
+                cin.clear();            // Clear the error state
+                cin.ignore(1000, '\n'); // Discard the incorrect input
+                cout << "Invalid option. Enter a number between 1 and 3." << endl;
+                option = 0; // Set a value out of range to continue the loop
+                continue;
+            }
+            // Start of switch for case 3, player 2
+            switch (option)
+            {
+            case 1:
+                cout << "- You find access to the final ritual." << endl;
+                cout << endl;
+                break;
+            case 2:
+                // Condition only if the item has been obtained
+                if (player.inventory[map] == 1)
+                {
+                    cout << "- You find a secondary secret door." << endl;
+                    player.inventory[map] = 0; // Once used, it is removed from inventory
+                    cout << endl;
+                }
+                else
+                {
+                    cout << "- You do not have any map. You cannot do anything." << endl;
+                }
+                break;
+            case 3:
+                cout << "- Completely random outcome." << endl;
+                cout << endl;
+                break;
+            } // Ends the switch for case 3, player 2
+        } while (option < 1 || option > 3); // Repeat until an option is chosen
+        break;
+    }
+        // Ends switch
+    }
+    cout << "-------End of Phase 4-------" << endl;
+    cout << endl;
+    cout << "Auto-saving game " << endl;
+    cout << endl;
+    // Auto-save after each event
+    pass = 2;
+    phase = 5;
+    event = 0;
+    progress(player);
+    return;
+}
