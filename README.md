@@ -103,6 +103,11 @@ Consideraciones técnicas del desarrollo
 ![case 3](https://github.com/user-attachments/assets/4a31df5d-8040-4362-9cfa-7aaf5d959a37)
 ![case 5](https://github.com/user-attachments/assets/5c925c98-42cd-48a1-989d-62df7498cc5a)
 
+## Flujograma
+![header h](https://github.com/user-attachments/assets/8275efaf-84fd-40ae-8ca8-35125d0bf443)
+![def cpp](https://github.com/user-attachments/assets/156f61c8-9369-4fa5-bf34-0722b2efd994)
+![main cpp](https://github.com/user-attachments/assets/bde82976-76f4-4a2e-a60f-aa7de4b4bc21)
+
 
 
 
