@@ -54,8 +54,17 @@ gameData loadProgress()
 
     {
         cout << "Could not load the game." << endl;
-
+        // Create a new game
+        cout << "Enter a name for the game: " << endl;
+        cin >> player.nameGame;
+        cout << "Enter the name of player 1: " << endl;
+        cin >> player.player1;
+        cout << "Enter the name of player 2: " << endl;
+        cin >> player.player2;
+        cout << endl;
         player.phase = 1;
+        progress(player); // Save progress
+        return player;    // Enter the game phases
     }
     return player;
 }
@@ -172,25 +181,26 @@ gameData menu()
                         break;
                     }
 
-                    // Enter the profile name and save it
+                // Enter the profile name and save it
+                case 2:
+                {
+                    string name;
+                    cout << "Enter your name: ";
+                    cin >> name;
+                    ofstream file("profile.txt");
+                    if (file.is_open())
                     {
-                        string name;
-                        cout << "Enter your name: ";
-                        cin >> name;
-                        ofstream file("profile.txt");
-                        if (file.is_open())
-                        {
-                            file << name << endl;
-                            file.close();
-                            cout << "Name saved successfully." << endl;
-                        }
-                        else
-                        {
-                            cout << "Error saving the name." << endl;
-                        }
-                        break;
+                        file << name << endl;
+                        file.close();
+                        cout << "Name saved successfully." << endl;
+                    }
+                    else
+                    {
+                        cout << "Error saving the name." << endl;
                     }
                     break;
+                }
+                break;
                 case 3:
                     // Exit profile options
                     break;
@@ -228,7 +238,7 @@ gameData menu()
             cout << "The Mansion of Blackthorn" << endl;
             cout << "A game created by brilliant minds in the shadows." << endl;
             cout << "Creators:" << endl;
-            cout << "Jose Ariel Álvarez Morales 00034725" << endl;
+            cout << "Jose Ariel Alvarez Morales 00034725" << endl;
             cout << "Diego Gabriel Bonilla Comandari 00147325" << endl;
             cout << "Erick Jose Claros Lopez 00071125" << endl;
             cout << "Angel Leonel Choto Garcia 00185725" << endl;
@@ -533,13 +543,13 @@ void phase1(gameData &player)
                 cout << endl;
                 break;
             } // Ends the switch for case 3, player 2
-            cout << "-------End of Phase 1-------" << endl;
             cout << endl;
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         break;
     }
         // Ends switch
     }
+    cout << "-------End of Phase 1-------" << endl;
     cout << "Auto-saving game " << endl;
     cout << endl;
     // Auto-save after each event
@@ -853,13 +863,13 @@ void phase2(gameData &player)
                 cout << endl;
                 break;
             } // Ends the switch for case 3, player 2
-            cout << "-------End of Phase 2-------" << endl;
             cout << endl;
         } while (option < 1 || option > 3); // Repeat until an option is chosen
         break;
     }
         // Ends switch
     }
+    cout << "-------End of Phase 2-------" << endl;
     cout << "Auto-saving game " << endl;
     cout << endl;
     // Auto-save after each event
@@ -1745,4 +1755,3 @@ void finals(gameData &player)
     progress(player);
     return;
 }
-
