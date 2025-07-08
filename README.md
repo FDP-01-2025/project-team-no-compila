@@ -9,25 +9,25 @@ El juego se desarrolla en una mansión embrujada conocida como “Blackthorn”,
 Mecánica principal:
 El juego es de tipo narrativo y por turnos, diseñado para dos jugadores. Cada jugador toma decisiones que afectan el rumbo de la historia. La mecánica se basa en:
 
--	Elegir entre opciones (1 a 3) en cada fase.
+- Elegir entre opciones (1 a 3) en cada fase.
 
--	Recolectar objetos clave para avanzar o desbloquear eventos.
+- Recolectar objetos clave para avanzar o desbloquear eventos.
 
--	Superar obstáculos sobrenaturales usando los objetos encontrados.
+- Superar obstáculos sobrenaturales usando los objetos encontrados.
 
--	Llegar al ritual final y lograr uno de varios desenlaces posibles.
+- Llegar al ritual final y lograr uno de varios desenlaces posibles.
 
 
 Idea general de la jugabilidad:
 Los jugadores avanzan a través de cinco fases principales, cada una con varios eventos aleatorios. En cada evento:
 
-Ambos jugadores enfrentan decisiones independientes.
+- Ambos jugadores enfrentan decisiones independientes.
 
-Las decisiones afectan la historia, los objetos obtenidos y el final del juego.
+- Las decisiones afectan la historia, los objetos obtenidos y el final del juego.
 
-Se utiliza un sistema de guardado automático para retomar el progreso.
+- Se utiliza un sistema de guardado automático para retomar el progreso.
 
-Existen múltiples finales dependiendo de los objetos recolectados y las acciones tomadas, lo que fomenta la rejugabilidad.
+- Existen múltiples finales dependiendo de los objetos recolectados y las acciones tomadas, lo que fomenta la rejugabilidad.
 
 
 Aplicación de los temas vistos:
@@ -69,12 +69,12 @@ Nombre del juego, jugadores, inventario (arreglo), fase actual, evento activo, p
 
 Consideraciones técnicas del desarrollo
 
--	El programa está escrito completamente en C++.
--	Se usó validación de entrada con cin.fail() para evitar errores si el usuario ingresa letras en lugar de números.
--	Se aplicaron principios de programación estructurada para mantener claridad y orden en el código.
--	El sistema de inventario se basa en un arreglo de enteros (int inventario[12]), donde cada índice representa un objeto.
--	El sistema de guardado/carga se implementó con lectura/escritura de archivos, usando rutas estándar.
--	Se aplico el uso de puntero (&) para poder guardar con exactitud el progreso de la partida y no se pierda por el uso del rand.
+- El programa está escrito completamente en C++.
+- Se usó validación de entrada con cin.fail() para evitar errores si el usuario ingresa letras en lugar de números.
+- Se aplicaron principios de programación estructurada para mantener claridad y orden en el código.
+- El sistema de inventario se basa en un arreglo de enteros (int inventario[12]), donde cada índice representa un objeto.
+- El sistema de guardado/carga se implementó con lectura/escritura de archivos, usando rutas estándar.
+- Se aplico el uso de puntero (&) para poder guardar con exactitud el progreso de la partida y no se pierda por el uso del rand.
 
 
 ## Equipo
