@@ -40,16 +40,19 @@ Ejemplo: progress() guarda el progreso actual en un archivo .txt.
 - Estructuras de control:
 
 if: Se usa para verificar si un jugador tiene un objeto antes de usarlo.
+
 Ejemplo: if (player.inventario[daga] == 1)
 
 switch: Utilizado para manejar múltiples decisiones de los jugadores o eventos aleatorios.
+
 Ejemplo: switch (evento) { case 1: ... }
 
 while / do...while: Garantiza que se ejecute la fase correcta hasta que el jugador complete esa fase y avance a la siguiente. Además, garantiza que el jugador ingrese opciones válidas.
-Ejemplo: while (phase == 1) phase1(player);
-         do { ... } while (option < 1 || option > 3);
+
+Ejemplo: while (phase == 1) phase1(player);                do { ... } while (option < 1 || option > 3);
 
 for: Se emplea para recorrer el inventario del jugador y mostrar los objetos disponibles.
+
 Ejemplo: for (int i = 0; i < 12; i++) { ... }
 
 - Manejo de archivos (fstream):
