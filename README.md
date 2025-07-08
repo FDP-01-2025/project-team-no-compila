@@ -30,7 +30,7 @@ Se utiliza un sistema de guardado automático para retomar el progreso.
 Existen múltiples finales dependiendo de los objetos recolectados y las acciones tomadas, lo que fomenta la rejugabilidad.
 
 
-Aplicación de los temas vistos
+Aplicación de los temas vistos:
 
 Funciones:
 
