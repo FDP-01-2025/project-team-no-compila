@@ -32,12 +32,12 @@ Los jugadores avanzan a través de cinco fases principales, cada una con varios 
 
 Aplicación de los temas vistos:
 
-Funciones:
+- Funciones:
 
 El código está dividido en funciones como progress(), loadprogress(), showObjects(), menu(), fase1(), fase2(), fase3(), fase4(), fase5(), finals().
 Ejemplo: progress() guarda el progreso actual en un archivo .txt.
 
-Estructuras de control:
+- Estructuras de control:
 
 if: Se usa para verificar si un jugador tiene un objeto antes de usarlo.
 Ejemplo: if (player.inventario[daga] == 1)
@@ -52,20 +52,24 @@ Ejemplo: while (phase == 1) phase1(player);
 for: Se emplea para recorrer el inventario del jugador y mostrar los objetos disponibles.
 Ejemplo: for (int i = 0; i < 12; i++) { ... }
 
-Manejo de archivos (fstream):
+- Manejo de archivos (fstream):
 
 Se utiliza ifstream y ofstream para leer y escribir archivos como “perfil.txt” o “parte1.txt”.
 Esto permite guardar el progreso del jugador o cargarlo si ya había jugado antes.
 
-Aleatoriedad (rand):
+- Aleatoriedad (rand):
 
 Cada fase selecciona aleatoriamente un evento mediante rand() % 3 + 1. Esto aporta variedad y hace que cada partida sea diferente.
 
-Estructuras (struct):
+- Estructuras (struct):
 
-Se utiliza una estructura llamada gameData para guardar información del juego como:
-
-Nombre del juego, jugadores, inventario (arreglo), fase actual, evento activo, progreso de la historia.
+Se utiliza una estructura llamada gameData para guardar información del juego como: 
+- Nombre del juego.
+- Jugadores.
+- Inventario (arreglo).
+- Fase actual.
+- Evento activo.
+- Progreso de la historia.
 
 Consideraciones técnicas del desarrollo
 
