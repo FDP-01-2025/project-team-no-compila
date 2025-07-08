@@ -1,4 +1,4 @@
-#include "def.cpp"
+#include "./src/def.cpp"
 
 int main()
 {
